@@ -32,7 +32,7 @@ let iotflows_remote_access = new IoTFlowsRemoteAccessClient({
 })
 ```
 
-Use a sftp command such as list the /etc/ folder:
+Use a sftp command e.g. list the /etc/ folder:
 ```javascript
 iotflows_remote_access.sftp_with_ssl_proxy()
 .then(sftp => {

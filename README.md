@@ -24,10 +24,11 @@ Configure the client:
 IoTFlowsRemoteAccessClient = require('@iotflows/iotflows-remote-access-client');
 
 let iotflows_remote_access = new IoTFlowsRemoteAccessClient({
-  host: 'server names2.devices.iotflows.com',  
-  device_uuid: 'dev_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', 
-  device_username: 'username-of-device', 
-  device_password: 'password-of-device'
+    
+  host: 'sX.devices.iotflows.com', //server name provided by IoTFlows Console when enabling SSH e.g. s2.devices.iotflows.com
+  device_uuid: 'dev_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', // device_uuid of your device in IoTFlows Console
+  device_username: 'username', // username of your device
+  device_password: 'password' // password of your device
 })
 ```
 
@@ -50,55 +51,55 @@ This package uses the [ssh2-sftp-client](https://www.npmjs.com/package/ssh2-sftp
 
 ```javascript
 
-    list(remoteFilePath: string, pattern?: string | RegExp): Promise<sftp.FileInfo[]>;
+list(remoteFilePath: string, pattern?: string | RegExp): Promise<sftp.FileInfo[]>;
 
-    exists(remotePath: string): Promise<false | FileInfoType>;
+exists(remotePath: string): Promise<false | FileInfoType>;
 
-    stat(remotePath: string): Promise<sftp.FileStats>;
+stat(remotePath: string): Promise<sftp.FileStats>;
 
-    realPath(remotePath: string): Promise<string>;
+realPath(remotePath: string): Promise<string>;
 
-    get(
-        path: string,
-        dst?: string | NodeJS.WritableStream,
-        options?: sftp.GetTransferOptions,
-    ): Promise<string | NodeJS.WritableStream | Buffer>;
+get(
+    path: string,
+    dst?: string | NodeJS.WritableStream,
+    options?: sftp.GetTransferOptions,
+): Promise<string | NodeJS.WritableStream | Buffer>;
 
-    fastGet(remoteFilePath: string, localPath: string, options?: sftp.FastGetTransferOptions): Promise<string>;
+fastGet(remoteFilePath: string, localPath: string, options?: sftp.FastGetTransferOptions): Promise<string>;
 
-    put(
-        input: string | Buffer | NodeJS.ReadableStream,
-        remoteFilePath: string,
-        options?: sftp.TransferOptions,
-    ): Promise<string>;
+put(
+    input: string | Buffer | NodeJS.ReadableStream,
+    remoteFilePath: string,
+    options?: sftp.TransferOptions,
+): Promise<string>;
 
-    fastPut(localPath: string, remoteFilePath: string, options?: sftp.FastPutTransferOptions): Promise<string>;
+fastPut(localPath: string, remoteFilePath: string, options?: sftp.FastPutTransferOptions): Promise<string>;
 
-    cwd(): Promise<string>;
+cwd(): Promise<string>;
 
-    mkdir(remoteFilePath: string, recursive?: boolean): Promise<string>;
+mkdir(remoteFilePath: string, recursive?: boolean): Promise<string>;
 
-    rmdir(remoteFilePath: string, recursive?: boolean): Promise<string>;
+rmdir(remoteFilePath: string, recursive?: boolean): Promise<string>;
 
-    delete(remoteFilePath: string): Promise<string>;
+delete(remoteFilePath: string): Promise<string>;
 
-    rename(remoteSourcePath: string, remoteDestPath: string): Promise<string>;
+rename(remoteSourcePath: string, remoteDestPath: string): Promise<string>;
 
-    chmod(remotePath: string, mode: number | string): Promise<string>;
+chmod(remotePath: string, mode: number | string): Promise<string>;
 
-    append(input: Buffer | NodeJS.ReadableStream, remotePath: string, options?: sftp.TransferOptions): Promise<string>;
+append(input: Buffer | NodeJS.ReadableStream, remotePath: string, options?: sftp.TransferOptions): Promise<string>;
 
-    uploadDir(srcDir: string, destDir: string): Promise<string>;
+uploadDir(srcDir: string, destDir: string): Promise<string>;
 
-    downloadDir(srcDir: string, destDir: string): Promise<string>;
+downloadDir(srcDir: string, destDir: string): Promise<string>;
 
-    end(): Promise<void>;
+end(): Promise<void>;
 
-    on(event: string, callback: (...args: any[]) => void): void;
+on(event: string, callback: (...args: any[]) => void): void;
 
-    removeListener(event: string, callback: (...args: any[]) => void): void;
+removeListener(event: string, callback: (...args: any[]) => void): void;
 
-    posixRename(fromPath: string, toPath: string): Promise<string>;
+posixRename(fromPath: string, toPath: string): Promise<string>;
 
 ```
 

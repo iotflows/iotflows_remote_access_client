@@ -1,6 +1,6 @@
 {
   "name": "@iotflows/iotflows-remote-access-client",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,17 @@
     "type": "git",
     "url": "https://github.com/iotflows/iotflows_remote_access_client"
   },
+  "keywords": [
+    "iotflows",
+    "iot",
+    "linux",
+    "remote",
+    "remote access",
+    "sftp",
+    "ssl",
+    "proxy",
+    "file-manager"
+  ],
   "author": {
     "name": "IoTFlows Inc",
     "url": "https://iotflows.com/"

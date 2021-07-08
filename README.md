@@ -2,7 +2,7 @@
 
 https://iotflows.com
 
-Javascript IoTFlow Remote Access Client for remote SSL SFTP from client side
+IoTFlow node.js client for remote SSL SFTP.
 
 This application allows your webapp to securely transfer and manage files on your device behind NATs and firewalls. 
 
@@ -23,7 +23,7 @@ Configure the client:
 ```javascript
 IoTFlowsRemoteAccessClient = require('@iotflows/iotflows-remote-access-client');
 
-let iotflows_remote_access = new IoTFlowsRemoteAccessClient({
+let client = new IoTFlowsRemoteAccessClient({
     
   host: 'sX.devices.iotflows.com', //server name provided by IoTFlows Console when enabling SSH e.g. s2.devices.iotflows.com
   device_uuid: 'dev_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', // device_uuid of your device in IoTFlows Console
@@ -34,7 +34,7 @@ let iotflows_remote_access = new IoTFlowsRemoteAccessClient({
 
 Use a sftp command e.g. list the /etc/ folder:
 ```javascript
-iotflows_remote_access.sftp_with_ssl_proxy()
+client.sftp_with_ssl_proxy()
 .then(sftp => {
   sftp.list('/etc/').then(data => {
     console.log(data)

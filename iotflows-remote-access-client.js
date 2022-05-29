@@ -62,12 +62,20 @@ class iotflows_remote_access_client {
             // console.log(err, 'catch error');   
             reject(err);
           });
+          sftp.on('error', err => {
+            reject(err);
+          })
         } 
         else {
           // console.log(`Connection not authorized: ${TLSSocketConnection.authorizationError}`)
           reject(`Connection not authorized: ${TLSSocketConnection.authorizationError}`);
         }    
-      })  
+      })
+      
+      TLSSocketConnection.on('error', err => {
+        reject(err);
+      })
+
     });
   }
 }
